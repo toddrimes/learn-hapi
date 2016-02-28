@@ -1,0 +1,32 @@
+{
+  "name": "learn-hapi",
+  "version": "1.0.0",
+  "description": "learning hapi",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:toddrimes/learn-hapi.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Todd Rimes <todd@rimesmedia.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toddrimes/learn-hapi/issues"
+  },
+  "homepage": "https://github.com/toddrimes/learn-hapi"
+}
