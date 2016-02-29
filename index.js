@@ -7,6 +7,8 @@ var fs = require('fs')
 var http = require("http")
 var url = require("url")
 var xsd = require('libxml-xsd')
+var xpath = require('xpath')
+var dom = require('xmldom').DOMParser
 
 var schemaPath = ''
 
@@ -62,18 +64,30 @@ server.register({
 
                     // here we go !
                     console.log(buf.toString());
+
+                    var xml = buf.toString()
+                    var doc = new dom().parseFromString(xml)
+                    var nodes = xpath.select("//link/text()", doc)
+                    // console.log(nodes[0].localName + ": " + nodes[0].firstChild.data)
+                    console.log(nodes[0].nodeValue )
+                    console.log("node: " + nodes[0].toString())
+
+                    xsd.parseFile("atvschema.xsd", function(err, schema){
+                        schema.validate(xml, function(err, validationErrors){
+                            // err contains any technical error
+                            // validationError is an array, null if the validation is ok
+                            if(null!=validationErrors) {
+                                console.log(`XML NOT VALID`)
+                            } else {
+                                console.log(`GOOD WORK! XML IS VALID`)
+                            }
+                        });
+                    });
+
                 });
             });
 
-/*            xsd.parseFile(schemaPath, function(err, schema){
-                schema.validate(documentString, function(err, validationErrors){
-                    // err contains any technical error
-                    // validationError is an array, null if the validation is ok
-                    if(null!=validationError) {
-                        console.log(`XML NOT VALID`)
-                    }
-                });
-            });*/
+
         }
     })
 

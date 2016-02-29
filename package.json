@@ -14,7 +14,9 @@
     "hapi": "^13.0.0",
     "inert": "^3.2.0",
     "libxml-xsd": "^0.5.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "xmldom": "^0.1.22",
+    "xpath": "0.0.21"
   },
   "devDependencies": {
     "mocha": "^2.4.5"

@@ -1,0 +1,75 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="umcCatalog">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="teamId"/>
+                <xs:element type="xs:string" name="link"/>
+                <xs:element name="channel">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:dateTime" name="lastBuildDate"/>
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element type="xs:string" name="description"/>
+                            <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="contentType"/>
+                                        <xs:element type="xs:string" name="contentId"/>
+                                        <xs:element type="xs:dateTime" name="pubDate"/>
+                                        <xs:element type="xs:string" name="secondaryContentId"/>
+                                        <xs:element type="xs:string" name="contentGroupId"/>
+                                        <xs:element type="xs:string" name="title"/>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:string" name="genre"/>
+                                        <xs:element name="rating">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="systemCode" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="externalContentId"/>
+                                        <xs:element name="artwork">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:anyURI" name="url" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="type" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="tag" maxOccurs="unbounded" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="type" minOccurs="0"/>
+                                        <xs:element type="xs:float" name="duration" minOccurs="0"/>
+                                        <xs:element type="xs:dateTime" name="airDate" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="showContentId" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="seasonContentId" minOccurs="0"/>
+                                        <xs:element type="xs:byte" name="seasonNumber" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="premiereDate" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="finaleDate" minOccurs="0"/>
+                                        <xs:element type="xs:string" name="isRunning" minOccurs="0"/>
+                                        <xs:element name="weeklySchedule" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="day" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="network" minOccurs="0"/>
+                                        <xs:element type="xs:byte" name="episodeNumber" minOccurs="0"/>
+                                        <xs:element type="xs:short" name="productionNumber" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
